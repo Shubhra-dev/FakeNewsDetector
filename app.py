@@ -197,7 +197,7 @@ class TextPreProcess():
     
     return str(out)
 
-  def stemming(cleaned_text):
+  def stemming(self,cleaned_text):
     stemmed = cleaned_text.apply(lambda x: self.stemmer_document(str(x)))
     return stemmed
 
