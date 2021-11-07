@@ -215,7 +215,7 @@ class TextPreProcess():
   Vectorize-------------------------
   '''
   # --------------------------------------------------------------
-  def vectorizer_transform(stemmed):
+  def vectorizer_transform(self,stemmed):
     
     tf_idf_matrix = self.vector.transform(stemmed)
     return tf_idf_matrix
@@ -235,7 +235,7 @@ def home():
   textPreProcess = TextPreProcess()
   predict_test_cleaned = textPreProcess.cleaned_texts(df['statement'])
   predict_test_stemmed = textPreProcess.stemming(predict_test_cleaned)
-  predict_test_vector = textPreProcess.vectorizer_transform(__stopwords,predict_test_stemmed)
+  predict_test_vector = textPreProcess.vectorizer_transform(predict_test_stemmed)
         
   svm = pickle.load(open('svmfit.pkl','rb'))
   svm_pred=svm.predict(predict_test_vector)
