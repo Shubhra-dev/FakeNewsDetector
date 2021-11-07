@@ -161,7 +161,7 @@ class TextPreProcess():
   Regular expression -------------------------
   '''
 
-  def clean(self,text):
+  def clean(text):
     text = re.sub('[%s]' % re.escape(punctuations), '', text)
     # text = re.sub('[%s]' % re.escape(to_remove), '', text)
     text = re.sub('[\t\n\r]', '', text)
@@ -179,13 +179,13 @@ class TextPreProcess():
     return text
 
 
-  def cleaned_texts(self,data):
+  def cleaned_texts(data):
     cleaned_text = data.apply(lambda a: self.clean(str(a)))
     return cleaned_text
   # ------------------------------------------------------------
 
   # Stemmer-----------------------------
-  def stemmer_document(self,text):
+  def stemmer_document(text):
       
     x=str(text)
     l=x.split()
@@ -197,7 +197,7 @@ class TextPreProcess():
     
     return str(out)
 
-  def stemming(self,cleaned_text):
+  def stemming(cleaned_text):
     stemmed = cleaned_text.apply(lambda x: self.stemmer_document(str(x)))
     return stemmed
 
@@ -215,7 +215,7 @@ class TextPreProcess():
   Vectorize-------------------------
   '''
   # --------------------------------------------------------------
-  def vectorizer_transform(self,stemmed):
+  def vectorizer_transform(stemmed):
     
     tf_idf_matrix = self.vector.transform(stemmed)
     return tf_idf_matrix
