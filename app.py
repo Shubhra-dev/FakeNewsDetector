@@ -223,7 +223,7 @@ class TextPreProcess():
 
 """# Predict Manual input (Statement)"""
 
-  @app.route("/prediction", methods="POST")
+  @app.route("/prediction", methods=["POST"])
   def home():
     predict_title = request.form['heading']
     predict_statement = request.form['statement']
