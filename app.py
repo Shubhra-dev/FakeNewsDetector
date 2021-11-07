@@ -161,7 +161,7 @@ class TextPreProcess():
   Regular expression -------------------------
   '''
 
-  def clean(text):
+  def clean(self,text):
     text = re.sub('[%s]' % re.escape(punctuations), '', text)
     # text = re.sub('[%s]' % re.escape(to_remove), '', text)
     text = re.sub('[\t\n\r]', '', text)
@@ -179,13 +179,13 @@ class TextPreProcess():
     return text
 
 
-  def cleaned_texts(data):
+  def cleaned_texts(self, data):
     cleaned_text = data.apply(lambda a: self.clean(str(a)))
     return cleaned_text
   # ------------------------------------------------------------
 
   # Stemmer-----------------------------
-  def stemmer_document(text):
+  def stemmer_document(self,text):
       
     x=str(text)
     l=x.split()
