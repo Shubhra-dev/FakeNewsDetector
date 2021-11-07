@@ -6,10 +6,6 @@ app = Flask(__name__)
 def first():
     return render_template('index.html')
 
-pip install bnlp_toolkit
-
-!pip install bangla-stemmer
-
 from bangla_stemmer.stemmer import stemmer
 
 __stopwords = ["টা","অবশ্য","অনেক","অনেকে","অনেকেই","অন্তত","অথবা","অথচ","অর্থাত","অন্য","আজ","আছে","আপনার","আপনি","আবার","আমরা","আমাকে","আমাদের"
