@@ -81,28 +81,13 @@ from bnlp.corpus import stopwords, punctuations
 # Commented out IPython magic to ensure Python compatibility.
 #Libraries
 import pandas as pd
-import matplotlib.pyplot as plt
-# %matplotlib inline
-import seaborn as sns
 import numpy as np
-from wordcloud import WordCloud
 import itertools
 import pickle
 
-  
-#Feature extraction and splitting
-from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-
-#Model
-from sklearn.tree import DecisionTreeClassifier
-from sklearn import naive_bayes
 from sklearn.svm import SVC
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.linear_model import LogisticRegression
-from sklearn.ensemble import RandomForestClassifier, VotingClassifier
-from sklearn.ensemble import AdaBoostClassifier
 
 #Evaluation
 from sklearn.model_selection import KFold
