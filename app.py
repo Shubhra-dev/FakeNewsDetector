@@ -231,10 +231,11 @@ def home():
         'statement':[predict_statement]}
   # Create DataFrame
   df = pd.DataFrame(data)
-
-  predict_test_cleaned = TextPreProcess.cleaned_texts(df['statement'])
-  predict_test_stemmed = TextPreProcess.stemming(predict_test_cleaned)
-  predict_test_vector = TextPreProcess.vectorizer_transform(__stopwords,predict_test_stemmed)
+    
+  textPreProcess = TextPreProcess()
+  predict_test_cleaned = textPreProcess.cleaned_texts(df['statement'])
+  predict_test_stemmed = textPreProcess.stemming(predict_test_cleaned)
+  predict_test_vector = textPreProcess.vectorizer_transform(__stopwords,predict_test_stemmed)
         
   svm = pickle.load(open('svmfit.pkl','rb'))
   svm_pred=svm.predict(predict_test_vector)
