@@ -245,20 +245,20 @@ def home():
 
   data = {'title':[predict_title],
         'statement':[predict_statement]}
-        # Create DataFrame
-        df = pd.DataFrame(data)
+  # Create DataFrame
+  df = pd.DataFrame(data)
 
-        predict_test_cleaned = text_preprocess_statement.cleaned_texts(df['statement'])
-        predict_test_stemmed = text_preprocess_statement.stemming(predict_test_cleaned)
-        predict_test_vector = text_preprocess_statement.vectorizer_transform(__stopwords,predict_test_stemmed)
+  predict_test_cleaned = text_preprocess_statement.cleaned_texts(df['statement'])
+  predict_test_stemmed = text_preprocess_statement.stemming(predict_test_cleaned)
+  predict_test_vector = text_preprocess_statement.vectorizer_transform(__stopwords,predict_test_stemmed)
         
-        svm = pickle.load(open('svmfit.pkl','rb'))
-        svm_pred=svm.predict(predict_test_vector)
+  svm = pickle.load(open('svmfit.pkl','rb'))
+  svm_pred=svm.predict(predict_test_vector)
 
-        if svm_pred == 1:
-          return render_template('true.html')
-        else:
-          return render_template('fake.html')  
+  if svm_pred == 1:
+    return render_template('true.html')
+  else:
+    return render_template('fake.html')  
 
 if __name__ == '__main__':
     app.run(debug=True)
