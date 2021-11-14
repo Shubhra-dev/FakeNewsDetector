@@ -248,7 +248,7 @@ def home():
   svm_pred=svm.predict(predict_test_vector)
   result+=svm_pred
   if svm_pred == 1 :
-        svm_pred_value = "True"
+        svm_pred_value = "Real"
   else:
     svm_pred_value = "Fake"
     
@@ -257,7 +257,7 @@ def home():
   svmlin_pred=svmlin.predict(predict_test_vector)
   result+=svmlin_pred
   if svmlin_pred == 1 :
-        svmlin_pred_value = "True"
+        svmlin_pred_value = "Real"
   else:
     svm_pred_value = "Fake"
 
@@ -265,7 +265,7 @@ def home():
   lr_pred=svm.predict(predict_test_vector)
   result+=lr_pred
   if lr_pred == 1 :
-        lr_pred_value = "True"
+        lr_pred_value = "Real"
   else:
     lr_pred_value = "Fake"
   
@@ -273,7 +273,7 @@ def home():
   rfm_pred=rfm.predict(predict_test_vector)
   result+=rfm_pred
   if rfm_pred == 1 :
-        rfm_pred_value = "True"
+        rfm_pred_value = "Real"
   else:
     rfm_pred_value = "Fake"
     
@@ -282,7 +282,7 @@ def home():
   mnb_pred=svm.predict(predict_test_vector)
   result+=mnb_pred
   if mnb_pred == 1 :
-        mnb_pred_value = "True"
+        mnb_pred_value = "Real"
   else:
     mnb_pred_value = "Fake"
   
@@ -290,14 +290,14 @@ def home():
   mlp_pred=svmlin.predict(predict_test_vector)
   result+=mlp_pred
   if mlp_pred == 1 :
-        mlp_pred_value = "True"
+        mlp_pred_value = "Real"
   else:
     mlp_pred_value = "Fake"
     
   result = result/6
   accuracy = result * 100
   if result >= 0.5:
-    return render_template('true.html',acc=accuracy,svm=svm_pred_value,svmlin=svmlin_pred_value,rfm=rfm_pred_value,lr=lr_pred_value,msnb=mnb_pred_value,mlp=mlp_pred_value)
+    return render_template('true.html',acc=accuracy,svm=svm_pred_value,svmlin=svmlin_pred_value,rfm=rfm_pred_value,lr=lr_pred_value,mnb=mnb_pred_value,mlp=mlp_pred_value)
   else:
     return render_template('fake.html',acc=100-accuracy,svm=svm_pred_value,svmlin=svmlin_pred_value,rfm=rfm_pred_value,lr=lr_pred_value,mnb=mnb_pred_value,mlp=mlp_pred_value)  
 
