@@ -253,7 +253,7 @@ def home():
     svm_pred_value = "Fake"
     
 
-  svmlin = pickle.load(open('svmLinearfit','rb'))
+  svmlin = pickle.load(open('svmLinearfit.pkl','rb'))
   svmlin_pred=svmlin.predict(predict_test_vector)
   result+=svmlin_pred
   if svmlin_pred == 1 :
@@ -269,7 +269,7 @@ def home():
   else:
     lr_pred_value = "Fake"
   
-  rfm = pickle.load(open('rfmfit','rb'))
+  rfm = pickle.load(open('rfmfit.pkl','rb'))
   rfm_pred=rfm.predict(predict_test_vector)
   result+=rfm_pred
   if rfm_pred == 1 :
@@ -286,7 +286,7 @@ def home():
   else:
     mnb_pred_value = "Fake"
   
-  mlp = pickle.load(open('mlpfit','rb'))
+  mlp = pickle.load(open('mlpfit.pkl','rb'))
   mlp_pred=svmlin.predict(predict_test_vector)
   result+=mlp_pred
   if mlp_pred == 1 :
