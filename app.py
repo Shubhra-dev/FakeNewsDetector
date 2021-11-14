@@ -296,9 +296,9 @@ def home():
 
 
   if (result/6) >= 0.5:
-    return render_template('true.html',acc=((result/6)*100)),svm=svm_pred_value,svmlin=svmlin_pred_value,rfm=rfm_pred_value,lor=lr_pred_value,mnb=mnb_pred_value,mlp=mlp_pred_value)
+    return render_template('true.html',acc=((result/6)*100)),svm=svm_pred_value,svmlin=svmlin_pred_value,rfm=rfm_pred_value)
   else:
-    return render_template('fake.html',acc=((1-(result/6))*100)),svm=svm_pred_value,svmlin=svmlin_pred_value,rfm=rfm_pred_value,lor=lr_pred_value,mnb=mnb_pred_value,mlp=mlp_pred_value)  
+    return render_template('fake.html',acc=((1-(result/6))*100)),svm=svm_pred_value,svmlin=svmlin_pred_value,rfm=rfm_pred_value)  
 
 if __name__ == '__main__':
     app.run(debug=True)
