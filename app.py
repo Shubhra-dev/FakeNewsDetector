@@ -88,6 +88,11 @@ import pickle
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 from sklearn.svm import SVC
+from sklearn import naive_bayes
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.neural_network import MLPClassifier
 
 #Evaluation
 from sklearn.model_selection import KFold
@@ -236,14 +241,64 @@ def home():
   predict_test_cleaned = textPreProcess.cleaned_texts(df['statement'])
   predict_test_stemmed = textPreProcess.stemming(predict_test_cleaned)
   predict_test_vector = textPreProcess.vectorizer_transform(predict_test_stemmed)
+    
+  result = 0
         
   svm = pickle.load(open('svmfit.pkl','rb'))
   svm_pred=svm.predict(predict_test_vector)
-
-  if svm_pred == 1:
-    return render_template('true.html')
+  result+=svm_pred
+  if svm_pred == 1 :
+        svm_pred_value = "True"
   else:
-    return render_template('fake.html')  
+    svm_pred_value = "Fake"
+    
+
+  svmlin = pickle.load(open('svmLinearfit','rb'))
+  svmlin_pred=svmlin.predict(predict_test_vector)
+  result+=svmlin_pred
+  if svmlin_pred == 1 :
+        svmlin_pred_value = "True"
+  else:
+    svm_pred_value = "Fake"
+
+  lr = pickle.load(open('lrfit.pkl','rb'))
+  lr_pred=svm.predict(predict_test_vector)
+  result+=lr_pred
+  if lr_pred == 1 :
+        lr_pred_value = "True"
+  else:
+    lr_pred_value = "Fake"
+  
+  rfm = pickle.load(open('rfmfit','rb'))
+  rfm_pred=rfm.predict(predict_test_vector)
+  result+=rfm_pred
+  if rfm_pred == 1 :
+        rfm_pred_value = "True"
+  else:
+    rfm_pred_value = "Fake"
+    
+  
+  mnb = pickle.load(open('mnbfit.pkl','rb'))
+  mnb_pred=svm.predict(predict_test_vector)
+  result+=mnb_pred
+  if mnb_pred == 1 :
+        mnb_pred_value = "True"
+  else:
+    mnb_pred_value = "Fake"
+  
+  mlp = pickle.load(open('mlpfit','rb'))
+  mlp_pred=svmlin.predict(predict_test_vector)
+  result+=mlp_pred
+  if mlp_pred == 1 :
+        mlp_pred_value = "True"
+  else:
+    mlp_pred_value = "Fake"
+
+
+  if (result/6) >= 0.5:
+    return render_template('true.html',acc=((result/6)*100)),svm=svm_pred_value,svmlin=svmlin_pred_value,rfm=rfm_pred_value,lr=lr_pred_value,mnb=mnb_pred_value,mlp=mlp_pred_value)
+  else:
+    return render_template('fake.html',acc=((1-(result/6))*100)),svm=svm_pred_value,svmlin=svmlin_pred_value,rfm=rfm_pred_value,lr=lr_pred_value,mnb=mnb_pred_value,mlp=mlp_pred_value)  
 
 if __name__ == '__main__':
     app.run(debug=True)
