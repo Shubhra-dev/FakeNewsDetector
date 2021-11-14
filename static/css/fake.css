@@ -1,0 +1,75 @@
+
+nav > a > img{
+    margin-left: 5px;;
+}
+.navbar-nav > li{
+    padding-left:45px;
+    padding-right:45px;
+  }
+  b{
+  color: #053868;
+  }
+.navbar{
+      background-color: #5cdb95;
+      border: lightgray solid;
+  }
+#main{
+      height:86vh;
+}
+.gradient{
+    background: #5cdb95;
+}
+h1{
+    font-family: 'Road Rage', cursive;
+    font-size: 45px;
+}
+form {
+    margin-left:auto;
+    margin-right:auto;
+    width: 800px;
+    height: 450px;
+    padding:30px;
+    border: 1px solid rgba(0,0,0,.2);
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    background: #053868; 
+    -moz-box-shadow: 0 0 13px 3px rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 13px 3px rgba(0,0,0,.5);
+    box-shadow: 0 0 13px 3px rgba(0,0,0,.5);
+    overflow: hidden; 
+}
+.heading{
+    width: 100%;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    box-shadow: inset;
+    border: 2px solid #ccc;
+    background-color: #8ee4af;
+    border-radius: 4px;
+}
+textarea {
+    background: rgba(255, 255, 255, 0.4) no-repeat scroll 16px 16px;
+    width: 100%;
+    height: 200px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    box-shadow: inset;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #8ee4af;
+    resize: none;
+}
+.submit{
+    color: midnightblue;
+    width: 50%;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    box-shadow: inset;
+    border: 2px solid maroon;
+    background-color: lightgray;
+    border-radius: 4px;
+}
