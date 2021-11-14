@@ -295,7 +295,7 @@ def home():
     mlp_pred_value = "Fake"
     
   result = result/6
-  accuracy = result * 100
+  accuracy = result*100
   if result >= 0.5:
     return render_template('true.html',acc=accuracy,svm=svm_pred_value,svmlin=svmlin_pred_value,rfm=rfm_pred_value,lr=lr_pred_value,mnb=mnb_pred_value,mlp=mlp_pred_value)
   else:
