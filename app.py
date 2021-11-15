@@ -259,7 +259,7 @@ def home():
   if svmlin_pred == 1 :
         svmlin_pred_value = "Real"
   else:
-    svm_pred_value = "Fake"
+    svmlin_pred_value = "Fake"
 
   lr = pickle.load(open('lrfit.pkl','rb'))
   lr_pred=svm.predict(predict_test_vector)
